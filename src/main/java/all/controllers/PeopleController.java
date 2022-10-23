@@ -59,7 +59,7 @@ public class PeopleController {
         if (bindingResult.hasErrors())
             return "users/edit";
 
-        userService.update(id, user);
+        userService.update(user);
         return "redirect:/users";
     }
 

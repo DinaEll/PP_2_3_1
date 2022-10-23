@@ -2,8 +2,6 @@ package all.models;
 
 import javax.persistence.*;
 import javax.validation.constraints.*;
-
-
 @Entity
 @Table(name = "User")
 public class User {
@@ -27,7 +25,6 @@ public class User {
     private String email;
 
     public User() {
-
     }
 
     public User(String name, int age) {
