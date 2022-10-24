@@ -1,6 +1,6 @@
 package all.service;
 
-import all.dao.UserDao;
+import all.dao.UserDaoImpl;
 import all.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,41 +12,41 @@ import java.util.List;
 @Service
 public class UserServiceImpl implements UserService {
 
-    private final UserDao userDaoInt;
+    private final UserDaoImpl userDaoImplInt;
 
     @Autowired
-    public UserServiceImpl(UserDao userDaoInt) {
-        this.userDaoInt = userDaoInt;
+    public UserServiceImpl(UserDaoImpl userDaoImplInt) {
+        this.userDaoImplInt = userDaoImplInt;
     }
 
     @Transactional
     @Override
     public List<User> index() {
-        return this.userDaoInt.index();
+        return this.userDaoImplInt.index();
     }
 
     @Transactional(readOnly = true)
     @Override
     public User show(int id) {
-        return this.userDaoInt.show(id);
+        return this.userDaoImplInt.show(id);
     }
 
     @Transactional
     @Override
     public void save(User user) {
-        userDaoInt.save(user);
+        userDaoImplInt.save(user);
     }
 
     @Transactional
     @Override
     public void update(User updatedUser) {
-        userDaoInt.update(updatedUser);
+        userDaoImplInt.update(updatedUser);
     }
 
     @Transactional
     @Override
     public void delete(int id) {
-        this.userDaoInt.delete(id);
+        this.userDaoImplInt.delete(id);
     }
 
 }
